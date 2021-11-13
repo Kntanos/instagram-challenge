@@ -1,0 +1,12 @@
+
+
+<% @posts.each do |post| %>
+  <div class="card" style="width: 18rem;"> 
+    <%= image_tag(post.image, class:"card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <a href="#" class="btn btn-primary">Comment</a>
+    </div>
+  </div>
+<% end %>
+
