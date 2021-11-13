@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
+  <%= form.label :post_image %>
+  <%= form.file_field :post_image %>
+
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="actions">
