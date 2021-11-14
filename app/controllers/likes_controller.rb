@@ -13,6 +13,7 @@ class LikesController < ApplicationController
   # GET /likes/new
   def new
     @like = Like.new
+    @post_id = params[:post_id]
   end
 
   # GET /likes/1/edit
