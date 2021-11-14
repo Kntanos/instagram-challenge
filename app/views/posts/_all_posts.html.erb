@@ -2,13 +2,17 @@
   <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-6">
       <% @posts.reverse_each do |post| %>
-        <div class="card"> 
+        <div class="card shadow-sm p-3 mb-5 bg-body rounded"> 
+          <% user = User.find(post.user_id) %>
+          <%= user.name %> posted this picture
           <%= image_tag(post.image, class:"card-img-top") %>
           <div class="card-body">
             <p class="card-title">
               <% post.comments.reverse_each do |comment| %>
+              <% user = User.find(comment.user_id) %>
                 <ul>
-                <%= comment.content if post.id == comment.post_id %>   
+                <%= user.name %> commented: 
+                <%= comment.content if post.id == comment.post_id %>
                 </ul>          
               <% end %>
             </p>
@@ -17,7 +21,7 @@
             <% likes = post.likes.select do |like| %>
             <% post.id == like.post_id %>
             <% end %>
-            <%= likes.count %>
+            Likes: <%= likes.count %>
           </div>
         </div>
       <% end %>
