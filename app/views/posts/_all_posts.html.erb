@@ -4,14 +4,14 @@
       <% @posts.reverse_each do |post| %>
         <div class="card shadow-sm p-3 mb-5 bg-body rounded"> 
           <% user = User.find(post.user_id) %>
-          <%= user.name %> posted this picture
+          Posted by <%= user.name %>
           <%= image_tag(post.image, class:"card-img-top") %>
           <div class="card-body">
             <p class="card-title">
               <% post.comments.reverse_each do |comment| %>
               <% user = User.find(comment.user_id) %>
                 <ul>
-                <%= user.name %> commented: 
+                <span class="fw-bold"><%= user.name %></span> 
                 <%= comment.content if post.id == comment.post_id %>
                 </ul>          
               <% end %>
