@@ -13,7 +13,7 @@ jobs:
   build:
     docker:
       - image: cimg/ruby:3.0.2
-    executor: ruby/default
+   # executor: ruby/default
     steps:
       - checkout
       - run:
