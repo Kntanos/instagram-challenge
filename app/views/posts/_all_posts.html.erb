@@ -3,13 +3,13 @@
     <div class="col-md-6">
       <% @posts.reverse_each do |post| %>
         <div class="card shadow-sm p-3 mb-5 bg-body rounded"> 
-          <% user = User.find(post.user_id) %>
+          <% user = User.find(post.user_id) %> <!-- This object should be in the controller, not here. Use current_user where user is used? -->
           Posted by <%= user.name %>
           <%= image_tag(post.image, class:"card-img-top") %>
           <div class="card-body">
             <p class="card-title">
               <% post.comments.reverse_each do |comment| %>
-              <% user = User.find(comment.user_id) %>
+              <% user = User.find(comment.user_id) %> <!-- This object should be in the controller, not here. Use current_user where user is used? -->
                 <ul>
                 <span class="fw-bold" ><%= user.name %></span> 
                 <%= comment.content if post.id == comment.post_id %>
